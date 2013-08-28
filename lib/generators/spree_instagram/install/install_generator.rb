@@ -12,8 +12,8 @@ module SpreeInstagram
       def add_stylesheets
         store_ext = File.exists?("app/assets/stylesheets/store/all.css") ? ".css" : ".css.scss"
         admin_ext = File.exists?("app/assets/stylesheets/admin/all.css") ? ".css" : ".css.scss"
-        inject_into_file "app/assets/stylesheets/store/all#{store_ext}", " *= require store/spree_instagram\n", :after => "*= require_tree .", :verbose => true
-        inject_into_file "app/assets/stylesheets/admin/all#{admin_ext}", " *= require admin/spree_instagram\n", :after => "*= require_tree .", :verbose => true
+        inject_into_file "app/assets/stylesheets/store/all#{store_ext}", "\n *= require store/spree_instagram\n", :after => "*= require_tree .", :verbose => true
+        inject_into_file "app/assets/stylesheets/admin/all#{admin_ext}", "\n *= require admin/spree_instagram\n", :after => "*= require_tree .", :verbose => true
       end
 
       def add_migrations

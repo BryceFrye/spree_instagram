@@ -1,6 +1,6 @@
 <div>
   <% @photos.each do |photo| %>
-    <div class="<%= photo.approved ? 'approved' : 'awaiting-approval' %>">
+    <div class="instagram-photo <%= photo.approved ? 'approved' : 'awaiting-approval' %>">
       <%= image_tag photo.url %><br />
       <% if photo.approved %>
         <%= link_to "Remove", revoke_photo_path(photo) %>

@@ -4,8 +4,9 @@
 
 .instagram-photo {
 	float: left;
-	background-color: #ECECEC;
-	margin: 13px;
+	background-color: #eff5fc;
+	border: 1px solid #cee1f4;
+	margin: 12px;
 }
 
 .instagram-photo.approved {
@@ -19,11 +20,11 @@
 .instagram-photo img {
 	width: 286px;
 	height: 286px;
-	padding : 20px;
+	padding : 10px;
 }
 
 .instagram-photo a {
 	position :relative;
-	bottom: 10px;
-	left: 20px;
+	bottom: 8px;
+	left: 10px;
 }

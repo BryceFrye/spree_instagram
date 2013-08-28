@@ -1,3 +1,13 @@
+<% content_for :page_title do %>
+  Instagtam Photos Tagged: <%= InstagramConfig::TAG %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li>
+    <%= link_to "Check For New Photos", check_for_new_path, class: "button icon-plus", icon: "icon-plus" %>
+  </li>
+<% end %>
+
 <div>
   <% @photos.each do |photo| %>
     <div class="instagram-photo <%= photo.approved ? 'approved' : 'awaiting-approval' %>">

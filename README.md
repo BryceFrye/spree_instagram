@@ -1,7 +1,7 @@
-SpreeInstagram
+Spree Instagram
 ==============
 
-Introduction goes here.
+A Spree extension for curating Instagram photos on your website.
 
 Installation
 ------------

@@ -5,13 +5,15 @@ module SpreeInstagram
       class_option :auto_run_migrations, :type => :boolean, :default => false
 
       def add_javascripts
-        append_file 'app/assets/javascripts/store/all.js', "//= require store/spree_instagram\n"
-        append_file 'app/assets/javascripts/admin/all.js', "//= require admin/spree_instagram\n"
+        append_file 'app/assets/javascripts/store/all.js', "\n//= require store/spree_instagram\n"
+        append_file 'app/assets/javascripts/admin/all.js', "\n//= require admin/spree_instagram\n"
       end
 
       def add_stylesheets
-        inject_into_file 'app/assets/stylesheets/store/all.css.scss', " *= require store/spree_instagram\n", :before => /\*\//, :verbose => true
-        inject_into_file 'app/assets/stylesheets/admin/all.css', " *= require admin/spree_instagram\n", :before => /\*\//, :verbose => true
+        store_ext = File.exists?("app/assets/stylesheets/store/all.css") ? ".css" : ".css.scss"
+        admin_ext = File.exists?("app/assets/stylesheets/admin/all.css") ? ".css" : ".css.scss"
+        inject_into_file "app/assets/stylesheets/store/all#{store_ext}", " *= require store/spree_instagram\n", :after => "*= require_tree .", :verbose => true
+        inject_into_file "app/assets/stylesheets/admin/all#{admin_ext}", " *= require admin/spree_instagram\n", :after => "*= require_tree .", :verbose => true
       end
 
       def add_migrations

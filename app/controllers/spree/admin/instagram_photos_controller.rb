@@ -3,8 +3,8 @@ module Spree
     class InstagramPhotosController < Spree::Admin::ResourceController
       
       def index
-        Spree::InstagramPhoto.fetch_with_tag("prizecandle")
-        @photos = Spree::InstagramPhoto.where(tag: "prizecandle").order("id ASC")
+        Spree::InstagramPhoto.fetch_with_tag(InstagramConfig::TAG)
+        @photos = Spree::InstagramPhoto.where(tag: InstagramConfig::TAG).order("id ASC")
       end
       
     end

@@ -29,7 +29,7 @@ end
 ```
 
 An 'Instagram' tab will be added to admin where you can moderate the photos you wish to display.
-To display an array of approved photos, simply add:
+To get an array of approved photos, simply use the approved_photos method:
 
 ```ruby
 @photos = Spree::InstagramPhoto.approved_photos

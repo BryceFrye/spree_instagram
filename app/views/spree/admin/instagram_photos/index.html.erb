@@ -1,5 +1,5 @@
 <% content_for :page_title do %>
-  Instagram Photos Tagged: <%= Spree::InstagramTag.active_tag %>
+  Instagram Photos Tagged: <%= Spree::InstagramTag.active_tag_names.join(", ") %>
 <% end %>
 
 <% content_for :page_actions do %>

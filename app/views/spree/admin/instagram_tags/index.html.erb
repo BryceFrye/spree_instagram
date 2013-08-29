@@ -34,7 +34,9 @@
             <td><%= "Active" if tag.active %>
             <td><%= tag.name %></td>
             <td>
-              <% unless tag.active %>
+              <% if tag.active %>
+                <%= link_to "Make Inactive", unactivate_instagram_tag_path(tag), method: :put %>
+              <% else %>
                 <%= link_to "Activate", activate_instagram_tag_path(tag), method: :put %>
               <% end %>
               <%= link_to "Delete", delete_instagram_tag_path(tag), confirm: "Are you sure?", method: :delete %>

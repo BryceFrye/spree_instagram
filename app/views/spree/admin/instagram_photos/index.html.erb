@@ -1,12 +1,14 @@
 <% content_for :page_title do %>
-  Instagtam Photos Tagged: <%= InstagramConfig::TAG %>
+  Instagram Photos Tagged: <%= Spree::InstagramTag.active_tag %>
 <% end %>
 
 <% content_for :page_actions do %>
   <li>
-    <%= link_to "Check For New Photos", check_for_new_path, class: "button icon-plus", icon: "icon-plus" %>
+    <%= link_to "Check For New Photos", admin_check_for_new_path, class: "button icon-plus", icon: "icon-plus" %>
   </li>
 <% end %>
+
+<%= render :partial => 'spree/admin/shared/instagram_sub_menu' %>
 
 <div>
   <% @photos.each do |photo| %>

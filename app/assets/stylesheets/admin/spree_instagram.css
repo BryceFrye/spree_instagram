@@ -2,6 +2,10 @@
  *= require admin/spree_backend
 */
 
+#change_active_tag input {
+	width: 250px;
+}
+
 .instagram-photo {
 	float: left;
 	background-color: #eff5fc;

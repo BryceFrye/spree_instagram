@@ -1,0 +1,50 @@
+<% content_for :page_title do %>
+  Instagram Tags
+<% end %>
+
+<%= render :partial => 'spree/admin/shared/instagram_sub_menu' %>
+
+<%= form_for :instagram_tag, :url => admin_create_instagram_tag_url, remote: true do |f| %>
+  <fieldset class="no-border-top">
+    <%= render :partial => 'form', :locals => { :f => f } %>
+    <div class="form-buttons filter-actions actions" data-hook="buttons">
+      <%= button Spree.t('actions.create'), 'icon-ok' %>
+    </div>
+  </fieldset>
+<% end %>
+
+<% if @instagram_tags.any? %>
+  <table class="index" id="listing_instagram_tags">
+    <colgroup>
+       <col style="width: 30%">
+       <col style="width: 40%;">
+       <col style="width: 30%;">
+    </colgroup>
+    <thead>
+      <tr data-hook="admin_products_index_headers">
+        <th>State</th>
+        <th>Tag</th>
+        <th>Edit</th>
+        <th data-hook="admin_products_index_header_actions" class="actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @instagram_tags.each do |tag| %>
+          <tr id="<%= spree_dom_id tag %>" data-hook="admin_instagram_tags_index_rows" class="<%= cycle('odd', 'even') %>">
+            <td><%= "Active" if tag.active %>
+            <td><%= tag.name %></td>
+            <td>
+              <% unless tag.active %>
+                <%= link_to "Activate", activate_instagram_tag_path(tag), method: :put %>
+              <% end %>
+              <%= link_to "Delete", delete_instagram_tag_path(tag), confirm: "Are you sure?", method: :delete %>
+            </td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="no-objects-found">
+    <%= Spree.t(:no_results) %>
+  </div>
+<% end %>

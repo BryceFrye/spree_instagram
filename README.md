@@ -20,12 +20,11 @@ bundle
 bundle exec rails g spree_instagram:install
 ```
 
-Set your Instagram client id and image tag to search for in initializers/instagram.rb:
+Set your Instagram client id in initializers/instagram.rb:
 
 ```ruby
 module InstagramConfig
   CLIENT_ID = "your_client_id'
-  TAG = "food"
 end
 ```
 

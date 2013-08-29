@@ -2,7 +2,7 @@ module Spree
   class InstagramPhoto < ActiveRecord::Base
     attr_accessible :photo_id, :url, :tag, :approved
     
-    validates :photo_id, uniqueness: true 
+    validates :photo_id, uniqueness: true
     
     def self.fetch_with_tag(tag)
       result = HTTParty.get("https://api.instagram.com/v1/tags/#{tag}/media/recent?client_id=#{InstagramConfig::CLIENT_ID}")
@@ -14,7 +14,7 @@ module Spree
     end
     
     def self.approved_photos
-      self.where(tag: InstagramConfig::TAG).where(approved: true).order("id ASC")
+      self.where(tag: Spree::InstagramTag.active_tag).where(approved: true).order("id ASC")
     end
     
   end

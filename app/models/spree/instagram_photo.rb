@@ -12,7 +12,7 @@ module Spree
         if result && result['data']
           result['data'].each do |photo|
             self.create(photo_id: photo['id'], 
-                        url: photo['images']['low_resolution']['url'], 
+                        url: photo['images']['low_resolution']['url'].sub(/http/, 'https'), 
                         tag_id: tag.id,
                         created_time: photo['created_time'])
           end

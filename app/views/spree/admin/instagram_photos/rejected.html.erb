@@ -1,0 +1,17 @@
+<% content_for :page_title do %>
+  Rejected Photos Tagged: <%= Spree::InstagramTag.active_tag_names.join(", ") %>
+<% end %>
+
+<%= render :partial => 'spree/admin/shared/instagram_sub_menu' %>
+
+<div>
+  <% @photos.each do |photo| %>
+    <div class="instagram-photo awaiting-approval">
+      <%= image_tag photo.url %><br />
+      <div class="instagram-tag">#<%= photo.instagram_tag.name %></div>
+      <div class="photo-options">
+        <%= link_to "Undo Reject", '#', :"data-url" => undo_reject_photo_path(photo), class: "undo-reject-photo" %>
+      </div>
+    </div>
+  <% end %>
+</div>

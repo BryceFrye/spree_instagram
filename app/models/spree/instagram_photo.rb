@@ -2,7 +2,7 @@ module Spree
   class InstagramPhoto < ActiveRecord::Base
     attr_accessible :photo_id, :url, :tag_id, :approved, :created_time
     
-    belongs_to :spree_instagram_tag
+    belongs_to :instagram_tag, foreign_key: :tag_id
     
     validates :photo_id, uniqueness: true
     

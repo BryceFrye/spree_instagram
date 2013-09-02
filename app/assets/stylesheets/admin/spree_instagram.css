@@ -11,14 +11,20 @@
 	background-color: #eff5fc;
 	border: 1px solid #cee1f4;
 	margin: 12px;
+	position: relative;
 }
 
 .instagram-photo.approved {
 	background-color: #5498da;
+	color: #FFFFFF;
 }
 
 .instagram-photo.approved a {
 	color: #FFFFFF;
+}
+
+.instagram-photo.awaiting-approval a {
+	color: #5498da;
 }
 
 .instagram-photo img {
@@ -27,8 +33,14 @@
 	padding : 10px;
 }
 
-.instagram-photo a {
+.instagram-tag {
 	position :relative;
 	bottom: 8px;
 	left: 10px;
+}
+
+.instagram-photo a {
+	position: absolute;
+	bottom: 8px;
+	right: 10px;
 }

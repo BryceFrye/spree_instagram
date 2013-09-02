@@ -2,7 +2,7 @@ module Spree
   class InstagramTag < ActiveRecord::Base
     attr_accessible :name, :active, :deleted
     
-    has_many :spree_instagram_photos
+    has_many :instagram_photos, foreign_key: :tag_id
     
     validates :name, uniqueness: true
     

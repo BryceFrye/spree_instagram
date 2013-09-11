@@ -1,4 +1,5 @@
 <!-- insert_bottom "[data-hook='admin_tabs'], #admin_tabs[data-hook]"
-  enabled -->
+  enabled 
+  original '947913b0b6e4bd6a35c042c06e6d2984a0aa094b' -->
 
 <%= tab(:instagram, :url => spree.admin_instagram_photos_path) %>

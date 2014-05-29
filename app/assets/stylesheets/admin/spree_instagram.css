@@ -51,6 +51,12 @@
 	background-color: #eff5fc;
 }
 
+.preview-approved .instagram-tag {
+	background-color: #eff5fc;
+	bottom: 10px;
+}
+
+
 .photo-options {
 	height: 20px;
 }
@@ -73,4 +79,14 @@
 
 .approved .reject-photo {
 	display: none;
+}
+
+#instagram_tag_name_field .hashtag {
+	position: relative;
+	top: 25px;
+	right: 30px;
+}
+
+#instagram_tag_name_field input {
+	padding-left: 15px;
 }

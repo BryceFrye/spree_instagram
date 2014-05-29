@@ -1,0 +1,14 @@
+<% content_for :page_title do %>
+  Approved Photos Tagged: <%= Spree::InstagramTag.active_tag_names.join(", ") %>
+<% end %>
+
+<%= render :partial => 'spree/admin/shared/instagram_sub_menu' %>
+
+<div>
+  <% @photos.each do |photo| %>
+    <div class="instagram-photo preview-approved">
+      <%= image_tag photo.url %><br />
+      <div class="instagram-tag">#<%= photo.instagram_tag.name %></div>
+    </div>
+  <% end %>
+</div>

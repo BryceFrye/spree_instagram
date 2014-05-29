@@ -5,6 +5,10 @@ module Spree
       def index
         @photos = Spree::InstagramPhoto.active.not_rejected
       end
+
+      def approved
+        @photos = Spree::InstagramPhoto.active.approved
+      end
       
       def rejected
         @photos = Spree::InstagramPhoto.active.rejected

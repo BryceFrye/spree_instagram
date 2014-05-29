@@ -10,5 +10,6 @@ Spree::Core::Engine.routes.draw do
   put 'admin/activate_instagram_tag/:tag' => 'admin::instagram_tags#activate_tag', as: 'activate_instagram_tag'
   put 'admin/unactivate_instagram_tag/:tag' => 'admin::instagram_tags#unactivate_tag', as: 'unactivate_instagram_tag'
   delete 'admin/delete_instagram_tag/:tag' => 'admin::instagram_tags#delete_tag', as: 'delete_instagram_tag'
-  get 'admin/instagram_rejected' => 'admin::instagram_photos#rejected'
+  get 'admin/instagram_rejected' => 'admin::instagram_photos#rejected', as: 'admin_rejected_photos'
+  get 'admin/preview_approved' => 'admin::instagram_photos#approved', as: 'admin_preview_approved'
 end

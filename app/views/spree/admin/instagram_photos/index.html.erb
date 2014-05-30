@@ -14,11 +14,15 @@
   <% @photos.each do |photo| %>
     <div class="instagram-photo <%= photo.approved ? 'approved' : 'awaiting-approval' %>">
       <%= image_tag photo.url %><br />
-      <% if photo.approved %>
-        <%= link_to "Remove", '#', :"data-url" => revoke_photo_path(photo) %>
-      <% else %>
-        <%= link_to "Approve", '#', :"data-url" => approve_photo_path(photo) %>
-      <% end %>
+      <div class="instagram-tag">#<%= photo.instagram_tag.name %></div>
+      <div class="photo-options">
+        <% if photo.approved %>
+          <%= link_to "Remove", '#', :"data-url" => revoke_photo_path(photo), class: "approve-or-remove" %>
+        <% else %>
+          <%= link_to "Approve", '#', :"data-url" => approve_photo_path(photo), class: "approve-or-remove" %>
+        <% end %>
+        <%= link_to "Reject", '#', :"data-url" => reject_photo_path(photo), class: "reject-photo" %>
+      </div>
     </div>
   <% end %>
 </div>

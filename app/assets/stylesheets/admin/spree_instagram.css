@@ -11,14 +11,20 @@
 	background-color: #eff5fc;
 	border: 1px solid #cee1f4;
 	margin: 12px;
+	position: relative;
 }
 
 .instagram-photo.approved {
 	background-color: #5498da;
+	color: #FFFFFF;
 }
 
 .instagram-photo.approved a {
 	color: #FFFFFF;
+}
+
+.instagram-photo.awaiting-approval a {
+	color: #5498da;
 }
 
 .instagram-photo img {
@@ -27,8 +33,60 @@
 	padding : 10px;
 }
 
-.instagram-photo a {
-	position :relative;
+.instagram-tag {
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	bottom: 30px;
+	display: none;
+	padding: 2px 0 0 0;
+}
+
+.approved .instagram-tag {
+	color: white;
+	background-color: #5498da;
+}
+
+.awaiting-approval .instagram-tag {
+	background-color: #eff5fc;
+}
+
+.preview-approved .instagram-tag {
+	background-color: #eff5fc;
+	bottom: 10px;
+}
+
+
+.photo-options {
+	height: 20px;
+}
+
+.hidden {
+	display: none;
+}
+
+.instagram-photo .approve-or-remove, .instagram-photo .undo-reject-photo {
+	position: absolute;
 	bottom: 8px;
 	left: 10px;
+}
+
+.instagram-photo .reject-photo {
+	position: absolute;
+	bottom: 8px;
+	right: 10px;
+}
+
+.approved .reject-photo {
+	display: none;
+}
+
+#instagram_tag_name_field .hashtag {
+	position: relative;
+	top: 25px;
+	right: 30px;
+}
+
+#instagram_tag_name_field input {
+	padding-left: 15px;
 }

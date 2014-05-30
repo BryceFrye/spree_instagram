@@ -3,7 +3,15 @@ module Spree
     class InstagramPhotosController < Spree::Admin::ResourceController
       
       def index
-        @photos = Spree::InstagramPhoto.where(tag_id: Spree::InstagramTag.active_tag_ids).order("created_time DESC")
+        @photos = Spree::InstagramPhoto.active.not_rejected
+      end
+
+      def approved
+        @photos = Spree::InstagramPhoto.active.approved
+      end
+      
+      def rejected
+        @photos = Spree::InstagramPhoto.active.rejected
       end
       
       def check_for_new

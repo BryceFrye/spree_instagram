@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_instagram'
-  s.version     = '0.0.4'
+  s.version     = '0.0.5'
   s.summary     = 'A Spree extension for curating Instagram photos on your website.'
   s.description = 'A Spree extension for curating Instagram photos on your website.'
   s.required_ruby_version = '>= 1.9.3'

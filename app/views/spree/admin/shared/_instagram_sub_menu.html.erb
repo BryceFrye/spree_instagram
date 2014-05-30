@@ -1,6 +1,8 @@
 <% content_for :sub_menu do %>
   <ul id="sub_nav" data-hook="admin_instagram_sub_tabs" class="inline-menu">
     <%= tab :instagram_photos, :match_path => '/instagram' %>
+    <%= tab :preview_approved, :match_path => '/preview_approved' %>
     <%= tab :instagram_tags, :match_path => '/instagram_tags' %>
+    <%= tab :rejected_photos, :match_path => '/rejected_photos' %>
   </ul>
 <% end %>

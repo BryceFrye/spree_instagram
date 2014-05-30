@@ -1,10 +1,16 @@
 module Spree
   class InstagramPhoto < ActiveRecord::Base
-    attr_accessible :photo_id, :url, :tag_id, :approved, :created_time
+    attr_accessible :photo_id, :url, :tag_id, :approved, :rejected, :created_time
     
-    belongs_to :spree_instagram_tag
+    belongs_to :instagram_tag, foreign_key: :tag_id
     
     validates :photo_id, uniqueness: true
+    
+    default_scope order('created_time DESC')
+    scope :active, -> { where tag_id: Spree::InstagramTag.active_tag_ids }
+    scope :approved, -> { where approved: true }
+    scope :rejected, -> { where rejected: true }
+    scope :not_rejected, -> { where rejected: false }
     
     def self.fetch_with_tag(tags)
       tags.each do |tag|
@@ -21,7 +27,7 @@ module Spree
     end
     
     def self.approved_photos
-      self.where(tag_id: Spree::InstagramTag.active_tag_ids).where(approved: true).order("created_time DESC")
+      self.active.approved
     end
     
   end
